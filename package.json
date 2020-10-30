@@ -47,6 +47,7 @@
     }
   ],
   "devDependencies": {
+    "@changesets/types": "^3.2.0",
     "@size-limit/preset-small-lib": "^4.7.0",
     "husky": "^4.3.0",
     "size-limit": "^4.7.0",
