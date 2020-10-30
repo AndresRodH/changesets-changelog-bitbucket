@@ -1,4 +1,7 @@
 import {ChangelogFunctions} from '@changesets/types'
+import {config} from 'dotenv'
+
+config()
 
 const changelogFunctions: ChangelogFunctions = {
   getReleaseLine: async (changeset, _type) => {
