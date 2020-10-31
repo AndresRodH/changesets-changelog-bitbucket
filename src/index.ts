@@ -1,6 +1,6 @@
 import {ChangelogFunctions} from '@changesets/types'
 import {config} from 'dotenv'
-import {getBitbucketInfo} from './getBitbucketInfo'
+import {getInfo} from './getInfo'
 
 config()
 
@@ -20,7 +20,7 @@ const changelogFunctions: ChangelogFunctions = {
       .map(l => l.trimRight())
 
     if (changeset.commit) {
-      let {links} = await getBitbucketInfo({
+      let {links} = await getInfo({
         repo: options.repo,
         commit: changeset.commit,
       })
@@ -48,7 +48,7 @@ const changelogFunctions: ChangelogFunctions = {
       await Promise.all(
         changesets.map(async cs => {
           if (cs.commit) {
-            let {links} = await getBitbucketInfo({
+            let {links} = await getInfo({
               repo: options.repo,
               commit: cs.commit,
             })

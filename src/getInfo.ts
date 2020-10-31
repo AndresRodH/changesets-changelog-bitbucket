@@ -7,7 +7,7 @@ type RequestParams = {
 
 const BITBUCKET_API_URL = 'https://api.bitbucket.org/2.0'
 
-export async function getBitbucketInfo(
+export async function getInfo(
   request: RequestParams
 ): Promise<{
   pull: number
@@ -19,12 +19,12 @@ export async function getBitbucketInfo(
   }
 }> {
   if (!request.commit) {
-    throw new Error('Please pass a commit SHA to getBitbucketInfo')
+    throw new Error('Please pass a commit SHA to getInfo')
   }
 
   if (!request.repo) {
     throw new Error(
-      'Please pass a Bitbucket repository in the form of workspace/repoSlug to getBitbucketInfo'
+      'Please pass a Bitbucket repository in the form of workspace/repoSlug to getInfo'
     )
   }
 
