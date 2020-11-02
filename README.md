@@ -10,7 +10,13 @@ I like how `@changesets/changelog-github` formats the changelog entries and want
 
 ## Instalation
 
-TODO
+```bash
+# using yarn
+yarn add -D changesets-changelog-bitbucket
+
+# npm
+npm install --save-dev changesets-changelog-bitbucket
+```
 
 ## Configuration
 
