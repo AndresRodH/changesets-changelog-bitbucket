@@ -41,9 +41,8 @@ export async function getInfo(
 
   const commitApiUrl = `${BITBUCKET_API_URL}/${request.repo}/commit/${request.commit}`
   const token = `${Buffer.from(
-    `${process.env.BITBUCKET_USERNAME}:${process.env.BITBUCKET_PASSWORD}`,
-    'base64'
-  )}`.replace(/\r?\n|\r/g, '')
+    `${process.env.BITBUCKET_USERNAME}:${process.env.BITBUCKET_PASSWORD}`
+  ).toString('base64')}`
   const headers = {
     Authorization: `Basic ${token}`,
   }
