@@ -5,7 +5,7 @@ type RequestParams = {
   commit: string
 }
 
-const BITBUCKET_API_URL = 'https://api.bitbucket.org/2.0'
+const BITBUCKET_API_URL = 'https://api.bitbucket.org/2.0/repositories'
 
 export async function getInfo(
   request: RequestParams
@@ -47,40 +47,30 @@ export async function getInfo(
     Authorization: `Basic ${token}`,
   }
 
-  try {
-    // https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D
-    const commitData = await fetch(commitApiUrl, {headers}).then((x: any) =>
-      x.json()
-    )
+  // https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D
+  const commitData = await fetch(commitApiUrl, {headers}).then((x: any) =>
+    x.json()
+  )
 
-    const {links: commitLinks, author} = commitData
+  const {links: commitLinks, author} = commitData
 
-    // https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bcommit%7D/pullrequests
-    const {values} = await fetch(`${commitApiUrl}/pullrequests`, {
-      headers,
-    }).then((x: any) => x.json())
-    const [pullRequestData] = values
+  // https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bcommit%7D/pullrequests
+  const {values} = await fetch(`${commitApiUrl}/pullrequests`, {
+    headers,
+  }).then((x: any) => x.json())
+  const [pullRequestData] = values
 
-    return {
-      pull: pullRequestData ? pullRequestData.id : null,
-      user: author ? author.display_name : null,
-      links: {
-        commit: `[\`${request.commit}\`](${commitLinks.html.href})`,
-        pull: pullRequestData
-          ? `[#${pullRequestData.id}](${pullRequestData.links.html.href})`
-          : null,
-        user: author
-          ? `[@${author.display_name}](${author.links.html.href})`
-          : null,
-      },
-    }
-  } catch (e) {
-    throw new Error(
-      `There was an error while fetching the info from Bitbucket: ${JSON.stringify(
-        e,
-        undefined,
-        2
-      )}`
-    )
+  return {
+    pull: pullRequestData ? pullRequestData.id : null,
+    user: author ? author.display_name : null,
+    links: {
+      commit: `[\`${request.commit}\`](${commitLinks.html.href})`,
+      pull: pullRequestData
+        ? `[#${pullRequestData.id}](${pullRequestData.links.html.href})`
+        : null,
+      user: author
+        ? `[@${author.user.display_name}](${author.user.links.html.href})`
+        : null,
+    },
   }
 }
