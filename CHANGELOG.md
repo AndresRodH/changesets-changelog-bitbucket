@@ -1,5 +1,11 @@
 # changesets-changelog-bitbucket
 
+## 0.2.1
+
+### Patch Changes
+
+- [`5af1bad`](https://github.com/AndresRodH/changesets-changelog-bitbucket/commit/5af1bad4ef237792de3b0f3dfc3e72d1d991e774) Thanks [@AndresRodH](https://github.com/AndresRodH)! - Remove `@changesets/changelog-github` from dependencies
+
 ## 0.2.0
 
 ### Minor Changes
