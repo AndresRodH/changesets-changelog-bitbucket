@@ -11,10 +11,10 @@ I like how `@changesets/changelog-github` formats the changelog entries and want
 ## Instalation
 
 ```bash
-# using yarn
+# for yarn users
 yarn add -D changesets-changelog-bitbucket
 
-# npm
+# for npm users
 npm install --save-dev changesets-changelog-bitbucket
 ```
 
