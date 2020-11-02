@@ -40,11 +40,12 @@ export async function getInfo(
   }
 
   const commitApiUrl = `${BITBUCKET_API_URL}/${request.repo}/commit/${request.commit}`
+  const token = `${Buffer.from(
+    `${process.env.BITBUCKET_USERNAME}:${process.env.BITBUCKET_PASSWORD}`,
+    'base64'
+  )}`.replace(/\r?\n|\r/g, '')
   const headers = {
-    Authorization: `Basic ${Buffer.from(
-      `${process.env.BITBUCKET_USERNAME}:${process.env.BITBUCKET_PASSWORD}`,
-      'base64'
-    )}`,
+    Authorization: `Basic ${token}`,
   }
 
   // https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D
