@@ -1,5 +1,11 @@
 # changesets-changelog-bitbucket
 
+## 0.2.0
+
+### Minor Changes
+
+- [`d71582e`](https://github.com/AndresRodH/changesets-changelog-bitbucket/commit/d71582e2a2250d463a2ff7c70ad565d6d06024c0) Thanks [@AndresRodH](https://github.com/AndresRodH)! - Use repositories api
+
 ## 0.1.3
 
 ### Patch Changes
