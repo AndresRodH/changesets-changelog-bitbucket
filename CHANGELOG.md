@@ -1,5 +1,11 @@
 # changesets-changelog-bitbucket
 
+## 0.1.3
+
+### Patch Changes
+
+- [`7ae5c79`](https://github.com/AndresRodH/changesets-changelog-bitbucket/commit/7ae5c79780a5a7a44f65889627afd00534c5e45a) Thanks [@AndresRodH](https://github.com/AndresRodH)! - Catch any errors on info fetch
+
 ## 0.1.2
 
 ### Patch Changes
