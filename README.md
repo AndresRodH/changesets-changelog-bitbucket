@@ -1,5 +1,7 @@
 # changesets-changelog-bitbucket
 
+[![npm version](https://badge.fury.io/js/changesets-changelog-bitbucket.svg)](https://badge.fury.io/js/changesets-changelog-bitbucket)
+
 Generate changelogs from bitbucket repositories. Mimics what [`@changesets/changelog-github`](https://github.com/atlassian/changesets/tree/master/packages/changelog-github) does but for Bitbucket repositories.
 
 ## Motivation
