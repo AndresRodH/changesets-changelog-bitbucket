@@ -1,5 +1,11 @@
 # changesets-changelog-bitbucket
 
+## 0.2.2
+
+### Patch Changes
+
+- [`6bf8a6e`](https://github.com/AndresRodH/changesets-changelog-bitbucket/commit/6bf8a6e64b462e69fdbc6f5d496463e95d127c79) [#6](https://github.com/AndresRodH/changesets-changelog-bitbucket/pull/6) Thanks [@bpallares](https://github.com/bpallares)! - Adds an NPM badge
+
 ## 0.2.1
 
 ### Patch Changes
